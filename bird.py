@@ -1,4 +1,4 @@
-Диана Абиш, [2/8/2023 7:28 PM]
+
 import pygame
 import pygame.mixer
 import random
@@ -63,8 +63,8 @@ def reset_game():
 
 
 class Bird(pygame.sprite.Sprite):
-  def init(self, x, y):
-    pygame.sprite.Sprite.init(self)
+  def __init__(self, x, y):
+    pygame.sprite.Sprite.__init__(self)
     self.images = []
     self.index = 0
     self.counter = 0
@@ -128,8 +128,8 @@ class Bird(pygame.sprite.Sprite):
 
 
 class Pipe(pygame.sprite.Sprite):
-  def init(self, x, y, position):
-    pygame.sprite.Sprite.init(self)
+  def __init__(self, x, y, position):
+    pygame.sprite.Sprite.__init__(self)
     self.image = pygame.image.load('Downloads/img/pipe.png')
     self.rect = self.image.get_rect()
     #position 1 is from the top, -1 is from the bottom
@@ -146,7 +146,7 @@ class Pipe(pygame.sprite.Sprite):
 
 
 class Button():
-  def init(self, x, y, image):
+  def __init__(self, x, y, image):
     self.image = image
     self.rect = self.image.get_rect()
     self.rect.topleft = (x, y)
@@ -158,7 +158,6 @@ class Button():
     #get mouse position
     pos = pygame.mouse.get_pos()
 
-Диана Абиш, [2/8/2023 7:28 PM]
 #check if mouse is over the button
     if self.rect.collidepoint(pos):
       if pygame.mouse.get_pressed()[0] == 1:
